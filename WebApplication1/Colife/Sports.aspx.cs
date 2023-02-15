@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Colife
 {
-    public partial class Home : System.Web.UI.Page
+    public partial class Sports : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
