@@ -73,8 +73,8 @@ D:\Collife_Project\WebApplication1\Colife\bin\System.Net.Http.Formatting.xml
 D:\Collife_Project\WebApplication1\Colife\bin\System.Web.Http.xml
 D:\Collife_Project\WebApplication1\Colife\bin\System.Web.Http.WebHost.xml
 D:\Collife_Project\WebApplication1\Colife\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\Collife_Project\WebApplication1\Colife\obj\Debug\Colife.csproj.AssemblyReference.cache
 D:\Collife_Project\WebApplication1\Colife\obj\Debug\Colife.csproj.CoreCompileInputs.cache
 D:\Collife_Project\WebApplication1\Colife\obj\Debug\Colife.csproj.CopyComplete
 D:\Collife_Project\WebApplication1\Colife\obj\Debug\Colife.dll
 D:\Collife_Project\WebApplication1\Colife\obj\Debug\Colife.pdb
+D:\Collife_Project\WebApplication1\Colife\obj\Debug\Colife.csproj.AssemblyReference.cache

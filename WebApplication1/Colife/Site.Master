@@ -12,9 +12,9 @@
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:bundlereference runat="server" path="~/Content/css"/>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
+    
 </head>
 <body>
     <form runat="server">
@@ -38,13 +38,13 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:#012d66">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar">nnn</span>                   
-                    </button>
-                    <a class="navbar-brand" runat="server" href="~/">Collife</a>
+                        <span class="icon-bar"></span>                   
+                    </button>                   
+                        <a class="navbar-brand; margin-top:2px" runat="server" href="~/Home.aspx"><img src="Images/Liceria.jpg" height="50"/>Collife</a>                            
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-center">
@@ -53,7 +53,7 @@
                         <li><a runat="server" href="~/Contact">Rankings</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right navbar-btn">
-                        <asp:Button ID="signUp" Text="Sign Up" runat="server" CssClass="" />
+                        <asp:Button ID="signUp" Text="Sign Up" runat="server"/>
                         <asp:Button ID="logIn" Text="Log in" runat="server" />
                     </ul>
                    

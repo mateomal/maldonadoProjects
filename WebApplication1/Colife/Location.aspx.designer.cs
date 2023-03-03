@@ -11,70 +11,61 @@ namespace Colife
 {
 
 
-    public partial class Home
+    public partial class Location
     {
 
         /// <summary>
-        /// searchBar control.
+        /// rbState control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText searchBar;
+        protected global::System.Web.UI.WebControls.RadioButton rbState;
 
         /// <summary>
-        /// btnSports control.
+        /// stateSelector control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton btnSports;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect stateSelector;
 
         /// <summary>
-        /// btnCampusLife control.
+        /// rbCity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton btnCampusLife;
+        protected global::System.Web.UI.WebControls.RadioButton rbCity;
 
         /// <summary>
-        /// btnAcademics control.
+        /// citySelector control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton btnAcademics;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect citySelector;
 
         /// <summary>
-        /// btnBudget control.
+        /// btnSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton btnBudget;
+        protected global::System.Web.UI.WebControls.Button btnSearch;
 
         /// <summary>
-        /// btnCities control.
+        /// btnClear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton btnCities;
-
-        /// <summary>
-        /// btnType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton btnType;
+        protected global::System.Web.UI.WebControls.Button btnClear;
     }
 }

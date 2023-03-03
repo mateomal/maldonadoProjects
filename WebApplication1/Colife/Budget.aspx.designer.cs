@@ -11,70 +11,61 @@ namespace Colife
 {
 
 
-    public partial class Home
+    public partial class Budget
     {
 
         /// <summary>
-        /// searchBar control.
+        /// cbInternational control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText searchBar;
+        protected global::System.Web.UI.WebControls.CheckBox cbInternational;
 
         /// <summary>
-        /// btnSports control.
+        /// cbAmerican control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton btnSports;
+        protected global::System.Web.UI.WebControls.CheckBox cbAmerican;
 
         /// <summary>
-        /// btnCampusLife control.
+        /// cbScholarship1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton btnCampusLife;
+        protected global::System.Web.UI.WebControls.CheckBox cbScholarship1;
 
         /// <summary>
-        /// btnAcademics control.
+        /// cbScholarship2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton btnAcademics;
+        protected global::System.Web.UI.WebControls.CheckBox cbScholarship2;
 
         /// <summary>
-        /// btnBudget control.
+        /// cbScholarship3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton btnBudget;
+        protected global::System.Web.UI.WebControls.CheckBox cbScholarship3;
 
         /// <summary>
-        /// btnCities control.
+        /// cbScholarship4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton btnCities;
-
-        /// <summary>
-        /// btnType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton btnType;
+        protected global::System.Web.UI.WebControls.CheckBox cbScholarship4;
     }
 }

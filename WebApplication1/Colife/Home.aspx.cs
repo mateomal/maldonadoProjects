@@ -13,5 +13,34 @@ namespace Colife
         {
 
         }
+
+        protected void btnSports_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Sports.aspx");
+        }
+
+        protected void btnCities_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Location.aspx");
+        }
+
+        protected void btnAcademics_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Majors.aspx");
+        }
+
+        protected void btnType_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Type.aspx");
+        }
+        protected void btnCampusLife_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("CampusLife.aspx");
+        }
+        protected void btnBudget_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Budget.aspx");
+        }
+
     }
 }

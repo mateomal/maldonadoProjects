@@ -1,46 +1,85 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="Colife.Home" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+  
 
-    <asp:Panel runat="server" ID="pHome">
-
-       <asp:Label ID="title" runat="server" Text="Collife" ></asp:Label>
-        <div class="container">
-            <div class="row">
-                <asp:TextBox ID="searchBar" runat="server"></asp:TextBox>
-                <asp:Button ID="searchButton" runat="server" Text="search" />
+        <div class="jumbotron" style="margin-bottom:20px">
+            <h1 class="text-center">Welcome to Collife</h1>          
+             <div class="row text-center">
+               <input class="form-control" runat="server" id="searchBar" placeholder="Search.."/>
             </div>
         </div>
+           
+        
 
         <div class="container">
-            <div class="row">
+            <div class="row text-center" style="margin-top:20px">
                 <div class="col-md-6">
-                    <asp:ImageButton ID="btnSports" runat="server" AlternateText="Sports" ImageUrl="Images\sports.jpg" />
+                    <div class="row">
+                         <asp:ImageButton ID="btnSports" runat="server" AlternateText="Sports" ImageUrl="Images\sports.jpg" OnClick="btnSports_Click" />
+                    </div>
+                       
+                    
+                    <div class="row">
+                        <asp:Label Text="Sports" runat="server"></asp:Label>
+                    </div>
+                    
                 </div>
                 <div class="col-md-6">
-                    <asp:ImageButton ID="btnCampusLife" runat="server" AlternateText="CampusLife" ImageUrl="Images\campusLife.jpg" />
+                    <div class="row">
+                        <asp:ImageButton ID="btnCampusLife" runat="server" AlternateText="CampusLife" ImageUrl="Images\campusLife.jpg" OnClick="btnCampusLife_Click" />
+                    </div>
+                        
+                    
+                    <div class="row">
+                        <asp:Label Text="Campus Life" runat="server"></asp:Label>
+                    </div>
+                    
                 </div>
             </div>
-             <div class="row">
+             <div class="row text-center" style="margin-top:20px">
                 <div class="col-md-6">
-                    <asp:ImageButton ID="btnAcademics" runat="server" AlternateText="Sports" ImageUrl="Images\academics.jpg" />
+                    <div class="row">
+                         <asp:ImageButton ID="btnAcademics" runat="server" AlternateText="Majors" ImageUrl="Images\academics.jpg" OnClick="btnAcademics_Click" />
+                    </div>
+                    <div class="row">
+                         <asp:Label Text="Academics" runat="server"></asp:Label>
+                    </div>
+                   
                 </div>
                 <div class="col-md-6">
-                    <asp:ImageButton ID="btnBudget" runat="server" AlternateText="CampusLife" ImageUrl="Images\budget.jpg" />
+                    <div class="row">
+                        <asp:ImageButton ID="btnBudget" runat="server" AlternateText="CampusLife" ImageUrl="Images\budget.jpg" OnClick="btnBudget_Click" />
+                    </div>
+                    <div class="row">
+                        <asp:Label Text="Budget" runat="server"></asp:Label>
+                    </div>
+                    
                 </div>
             </div>
-            <div class="row">
+            <div class="row text-center" style="margin-top:20px">
                 <div class="col-md-6">
-                    <asp:ImageButton ID="btnCities" runat="server" AlternateText="Sports" ImageUrl="Images\cities.jpg" />
+                    <div class="row">
+                         <asp:ImageButton ID="btnCities" runat="server" AlternateText="Sports" ImageUrl="Images\cities.jpg" OnClick="btnCities_Click" />
+                    </div>
+                   <div class="row">
+                       <asp:Label Text="Location" runat="server"></asp:Label>
+                   </div>
                 </div>
                 <div class="col-md-6">
-                    <asp:ImageButton ID="btnType" runat="server" AlternateText="CampusLife" ImageUrl="Images\type.jpg" />
+                    <div class="row">
+                        <asp:ImageButton ID="btnType" runat="server" AlternateText="CampusLife" ImageUrl="Images\type.jpg" OnClick="btnType_Click" />
+                    </div>
+                    <div class="row">
+                        <asp:Label Text="Type" runat="server"></asp:Label>
+                    </div>
+                    
                 </div>
             </div>
         </div>
         
        
-    </asp:Panel>
+   
 
 
 </asp:Content>
