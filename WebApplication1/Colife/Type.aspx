@@ -10,12 +10,10 @@
 
             <div class="collapse" id="collapseMenu">
                 <div class="card card-body text-left">
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <asp:CheckBox ID="btnBachelor" runat="server" Text="4 Years" TextAlign="Left" /></li>
-                        <li class="list-group-item">
-                            <asp:CheckBox ID="btnMaster" runat="server" Text="2 Years" TextAlign="Left" /></li>
-                    </ul>
+                    <asp:CheckBoxList ID="educationList" runat="server" CssClass="list-group-item text-left" ClientIDMode="Static" TextAlign="Left" AutoPostBack="false">
+                        <asp:ListItem>4 Year</asp:ListItem>
+                        <asp:ListItem>2 Years</asp:ListItem>                     
+                    </asp:CheckBoxList>
                 </div>
             </div>
         </div>
@@ -26,18 +24,15 @@
             <button class="btn" type="button" data-toggle="collapse" data-target="#collapseMenu2" aria-controls="#collapseMenu2" aria-expanded="false">College Type</button>
 
             <div class="collapse" id="collapseMenu2">
-                <div class="card card-body text-left">
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <asp:CheckBox ID="cbPrivate" runat="server" Text="Private" TextAlign="Left" /></li>
-                        <li class="list-group-item">
-                            <asp:CheckBox ID="cbPublic" runat="server" Text="Public" TextAlign="Left" /></li>
-                    </ul>
+                <div class="card card-body text-left">             
+                    <asp:CheckBoxList ID="typeList" runat="server" CssClass="list-group-item text-left" ClientIDMode="Static" TextAlign="Left" AutoPostBack="false">
+                        <asp:ListItem>Private</asp:ListItem>
+                        <asp:ListItem>Public</asp:ListItem>                     
+                    </asp:CheckBoxList>
                 </div>
             </div>
         </div>
     </div>
-
 
     <div class="row text-center">
         <div class="card">
@@ -45,20 +40,14 @@
 
             <div class="collapse" id="collapseMenu3">
                 <div class="card card-body text-left">
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <asp:CheckBox ID="cbBlackColleges" runat="server" Text="HBCU" TextAlign="Left" /></li>
-                        <li class="list-group-item">
-                            <asp:CheckBox ID="cbHispanic" runat="server" Text="HSIs" TextAlign="Left" /></li>
-                        <li class="list-group-item">
-                            <asp:CheckBox ID="cbTribal" runat="server" Text="TCUs" TextAlign="Left" /></li>
-
-                        <li class="list-group-item">
-                            <asp:CheckBox ID="cbWomen" runat="server" Text="All-Women" TextAlign="Left" /></li>
-
-                        <li class="list-group-item">
-                            <asp:CheckBox ID="cbMen" runat="server" Text="All-Men" TextAlign="Left" /></li>                      
-                    </ul>
+                   
+                    <asp:CheckBoxList ID="missionList" runat="server" CssClass="list-group-item text-left" ClientIDMode="Static" TextAlign="Left" AutoPostBack="false">
+                        <asp:ListItem>HBCU</asp:ListItem>
+                        <asp:ListItem>HSIs</asp:ListItem>
+                        <asp:ListItem>TCUs</asp:ListItem>
+                        <asp:ListItem>All-Women</asp:ListItem>
+                        <asp:ListItem>All-Men</asp:ListItem>
+                    </asp:CheckBoxList> 
                 </div>
             </div>
         </div>
@@ -70,16 +59,13 @@
 
             <div class="collapse" id="collapseMenu4">
                 <div class="card card-body text-left">
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <asp:CheckBox ID="cbRemote" runat="server" Text="Remote learning" TextAlign="Left" /></li>
-                        <li class="list-group-item">
-                            <asp:CheckBox ID="cbDoubleMajor" runat="server" Text="Double Major" TextAlign="Left" /></li>
-                        <li class="list-group-item">
-                            <asp:CheckBox ID="cbHonors" runat="server" Text="Honors Program" TextAlign="Left" /></li>
-                        <li class="list-group-item">
-                            <asp:CheckBox ID="cbWeekend" runat="server" Text="Weekend College" TextAlign="Left" /></li>                     
-                    </ul>
+                    <asp:CheckBoxList ID="interestList" runat="server" CssClass="list-group-item text-left" ClientIDMode="Static" TextAlign="Left" AutoPostBack="false">
+                        <asp:ListItem>Remote learning</asp:ListItem>
+                        <asp:ListItem>Double Major</asp:ListItem>
+                        <asp:ListItem>Honors Program</asp:ListItem>
+                        <asp:ListItem>Weekend College</asp:ListItem>
+                    </asp:CheckBoxList> 
+
                 </div>
             </div>
         </div>

@@ -15,57 +15,39 @@ namespace Colife
     {
 
         /// <summary>
-        /// cbInternational control.
+        /// cbList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbInternational;
+        protected global::System.Web.UI.WebControls.CheckBoxList cbList;
 
         /// <summary>
-        /// cbAmerican control.
+        /// btnClear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbAmerican;
+        protected global::System.Web.UI.WebControls.Button btnClear;
 
         /// <summary>
-        /// cbScholarship1 control.
+        /// btnSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbScholarship1;
+        protected global::System.Web.UI.WebControls.Button btnSearch;
 
         /// <summary>
-        /// cbScholarship2 control.
+        /// collegeTable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbScholarship2;
-
-        /// <summary>
-        /// cbScholarship3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbScholarship3;
-
-        /// <summary>
-        /// cbScholarship4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbScholarship4;
+        protected global::System.Web.UI.WebControls.GridView collegeTable;
     }
 }

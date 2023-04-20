@@ -10,15 +10,19 @@
         <input class="form-control" id="searchBar" type="text" placeholder="Search.." />  
         <br /> 
         <div style="height:500px; overflow-y:scroll">
-            <asp:CheckBoxList ID="cbList" runat="server" TextAlign="Left" CssClass="list-group-item text-left" ClientIDMode="Static"/>
+            <asp:CheckBoxList ID="cbList" runat="server" TextAlign="Left" CssClass="list-group-item text-left" ClientIDMode="Static" Enabled="true" AutoPostBack="false"/>
         </div>
                       
     </div>
+    <div class="row">
+        <asp:GridView ID="collegeTable" runat="server"></asp:GridView>
 
+
+    </div>
     <div class="row text-center" style="margin-top:20px">
 
         <asp:Button ID="btnClear" runat="server" Text="Clear" BackColor="#012d66" ForeColor="White"/>
-        <asp:Button ID="btnSearch" runat="server" Text="Search" ForeColor="White" BackColor="#d8b936"/>
+        <asp:Button ID="btnSearch" runat="server" Text="Search" ForeColor="White" BackColor="#d8b936" OnClick="btn_Search"/>
     </div>
 
 

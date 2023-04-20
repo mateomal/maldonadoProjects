@@ -10,15 +10,11 @@
 
             <div class="collapse" id="collapseMenu">
                 <div class="card card-body">
-                    <ul class="list-group text-left">
-                        <li class="list-group-item">
-                            <asp:CheckBox ID="btnLess" runat="server" Text="Less than 3,000 students" TextAlign="Left" /></li>
-                        <li class="list-group-item">
-                            <asp:CheckBox ID="btnBetween" runat="server" Text="3,000-15,000 students" TextAlign="Left" /></li>
-                         <li class="list-group-item">
-                            <asp:CheckBox ID="btnMore" runat="server" Text="More than 15,000 students" TextAlign="Left" /></li>
-
-                    </ul>
+                    <asp:CheckBoxList ID="numberStudents" runat="server" CssClass="list-group-item text-left" ClientIDMode="Static" TextAlign="Left" AutoPostBack="false">
+                        <asp:ListItem Value="3000">Less than 3,000 students</asp:ListItem>
+                        <asp:ListItem Value="15000">3,000-15,000 students</asp:ListItem>
+                        <asp:ListItem Value="15001">More than 15,000 students</asp:ListItem>
+                    </asp:CheckBoxList>              
                 </div>
             </div>
         </div>
@@ -46,43 +42,27 @@
             <button class="btn" type="button" data-toggle="collapse" data-target="#collapseMenu3" aria-controls="#collapseMenu3" aria-expanded="false">Surroundings</button>
 
             <div class="collapse" id="collapseMenu3">
-                <div class="card card-body">
-                    <ul class="list-group text-left">
-                        <li class="list-group-item">
-                            <asp:CheckBox ID="cbUrban" runat="server" Text="Urban" TextAlign="Left" /></li>
-                        <li class="list-group-item">
-                            <asp:CheckBox ID="cbSuburban" runat="server" Text="Suburban" TextAlign="Left" /></li>
-                        <li class="list-group-item">
-                            <asp:CheckBox ID="cbRural" runat="server" Text="Rural" TextAlign="Left" /></li>                   
-                    </ul>
+                <div class="card card-body">  
+                    <asp:CheckBoxList ID="surroundingsList" runat="server" CssClass="list-group-item text-left" ClientIDMode="Static" TextAlign="Left" AutoPostBack="false">
+                        <asp:ListItem>Urban</asp:ListItem>
+                        <asp:ListItem>Suburban</asp:ListItem>
+                        <asp:ListItem>Rural</asp:ListItem>
+                    </asp:CheckBoxList> 
+
                 </div>
             </div>
         </div>
     </div>
 
-     <div class="row text-center">
-        <div class="card">
-            <button class="btn" type="button" data-toggle="collapse" data-target="#collapseMenu4" aria-controls="#collapseMenu4" aria-expanded="false">Dissabilitites Supports</button>
-
-            <div class="collapse" id="collapseMenu4">
-                <div class="card card-body">
-                    <ul class="list-group text-left">
-                        <li class="list-group-item">
-                            <asp:CheckBox ID="cbVisually" runat="server" Text="Vissualy Impared" TextAlign="Left" /></li>
-                        <li class="list-group-item">
-                            <asp:CheckBox ID="cbHeard" runat="server" Text="Heard Impared" TextAlign="Left" /></li>
-                        <li class="list-group-item">
-                            <asp:CheckBox ID="cbLearning" runat="server" Text="Learning Disorders" TextAlign="Left" /></li>
-                        <li class="list-group-item">
-                            <asp:CheckBox ID="cbCommunication" runat="server" Text="Communication Disorders" TextAlign="Left" /></li>                     
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="row text-center" style="margin-top:20px">
         <asp:Button runat="server" ID="btnClear" Text="Clear" />
-        <asp:Button runat="server" ID="btnSearch" Text="Search" />
+        <asp:Button runat="server" ID="btnSearch" Text="Search"  OnClick="btn_SearchClick" />
+    </div>
+
+    <div class="row">
+        <asp:GridView ID="collegeTable" runat="server"></asp:GridView>
+
+
     </div>
 
     <script>

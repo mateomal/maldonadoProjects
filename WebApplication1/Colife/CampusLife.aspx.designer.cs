@@ -15,31 +15,13 @@ namespace Colife
     {
 
         /// <summary>
-        /// btnLess control.
+        /// numberStudents control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox btnLess;
-
-        /// <summary>
-        /// btnBetween control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox btnBetween;
-
-        /// <summary>
-        /// btnMore control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox btnMore;
+        protected global::System.Web.UI.WebControls.CheckBoxList numberStudents;
 
         /// <summary>
         /// cbList control.
@@ -51,67 +33,13 @@ namespace Colife
         protected global::System.Web.UI.WebControls.CheckBoxList cbList;
 
         /// <summary>
-        /// cbUrban control.
+        /// surroundingsList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbUrban;
-
-        /// <summary>
-        /// cbSuburban control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbSuburban;
-
-        /// <summary>
-        /// cbRural control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbRural;
-
-        /// <summary>
-        /// cbVisually control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbVisually;
-
-        /// <summary>
-        /// cbHeard control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbHeard;
-
-        /// <summary>
-        /// cbLearning control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbLearning;
-
-        /// <summary>
-        /// cbCommunication control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbCommunication;
+        protected global::System.Web.UI.WebControls.CheckBoxList surroundingsList;
 
         /// <summary>
         /// btnClear control.
@@ -130,5 +58,14 @@ namespace Colife
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSearch;
+
+        /// <summary>
+        /// collegeTable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView collegeTable;
     }
 }

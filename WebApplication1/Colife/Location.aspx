@@ -19,7 +19,11 @@
         <div class="row text-center">
             <div class="align-middle">
                 <asp:RadioButton ID="rbState" runat="server" Text="State" OnCheckedChanged="onChangeRadio" AutoPostBack="true" />
-                <select class="selectpicker form-control" multiple data-live-search="true" runat="server" id="stateSelector" visible="false"></select>
+                <select class="selectpicker form-control" multiple data-live-search="true" runat="server" id="stateSelector" visible="false" name="state">
+                </select>
+              
+
+
             </div>
         </div>
 
@@ -36,10 +40,19 @@
         </div>
 
         <div class="row text-center" style="margin-top:20px">
-            <asp:Button ID="btnSearch" runat="server" Text="Search" />
+            <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btn_Search" />
             <asp:Button ID="btnClear" runat="server" Text="Clear" />
         </div>
     </div>
+
+    <div class="row">
+        <asp:GridView ID="collegeTable" runat="server"></asp:GridView>
+
+
+    </div>
+
+
+
 
 
 
