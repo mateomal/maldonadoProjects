@@ -11,8 +11,9 @@
             <div class="collapse" id="collapseMenu">
                 <div class="card card-body text-left">
                     <asp:CheckBoxList ID="educationList" runat="server" CssClass="list-group-item text-left" ClientIDMode="Static" TextAlign="Left" AutoPostBack="false">
-                        <asp:ListItem>4 Year</asp:ListItem>
-                        <asp:ListItem>2 Years</asp:ListItem>                     
+                        <asp:ListItem>Bachelors</asp:ListItem>
+                        <asp:ListItem>Masters</asp:ListItem> 
+                        <asp:ListItem>PhD</asp:ListItem>  
                     </asp:CheckBoxList>
                 </div>
             </div>
@@ -35,45 +36,12 @@
     </div>
 
     <div class="row text-center">
-        <div class="card">
-            <button class="btn" type="button" data-toggle="collapse" data-target="#collapseMenu3" aria-controls="#collapseMenu3" aria-expanded="false">Mission</button>
-
-            <div class="collapse" id="collapseMenu3">
-                <div class="card card-body text-left">
-                   
-                    <asp:CheckBoxList ID="missionList" runat="server" CssClass="list-group-item text-left" ClientIDMode="Static" TextAlign="Left" AutoPostBack="false">
-                        <asp:ListItem>HBCU</asp:ListItem>
-                        <asp:ListItem>HSIs</asp:ListItem>
-                        <asp:ListItem>TCUs</asp:ListItem>
-                        <asp:ListItem>All-Women</asp:ListItem>
-                        <asp:ListItem>All-Men</asp:ListItem>
-                    </asp:CheckBoxList> 
-                </div>
-            </div>
-        </div>
-    </div>
-
-     <div class="row text-center">
-        <div class="card">
-            <button class="btn" type="button" data-toggle="collapse" data-target="#collapseMenu4" aria-controls="#collapseMenu4" aria-expanded="false">Special Interests</button>
-
-            <div class="collapse" id="collapseMenu4">
-                <div class="card card-body text-left">
-                    <asp:CheckBoxList ID="interestList" runat="server" CssClass="list-group-item text-left" ClientIDMode="Static" TextAlign="Left" AutoPostBack="false">
-                        <asp:ListItem>Remote learning</asp:ListItem>
-                        <asp:ListItem>Double Major</asp:ListItem>
-                        <asp:ListItem>Honors Program</asp:ListItem>
-                        <asp:ListItem>Weekend College</asp:ListItem>
-                    </asp:CheckBoxList> 
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row text-center">
         <asp:Button runat="server" ID="btnClear" Text="Clear" />
-        <asp:Button runat="server" ID="btnSearch" Text="Search" />
+        <asp:Button runat="server" ID="btnSearch" Text="Search" OnClick="btn_Search"/>
     </div>
 
+    <div class="row">
+        <asp:GridView ID="collegeTable" runat="server"></asp:GridView>
+    </div>
 
 </asp:Content>

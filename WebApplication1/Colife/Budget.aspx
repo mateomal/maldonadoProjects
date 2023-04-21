@@ -1,10 +1,25 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Budget.aspx.cs" Inherits="Colife.Budget" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
  
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+    <style>
+
+        #slider-range{
+            margin-bottom:20px;
+        }
+
+
+    </style>
 
     <h2 class="text-center">Budget</h2>
 
     <div class="container">
+    <asp:HiddenField ID="valueField" ClientIDMode="Static" runat="server" />
+
 
         <div class="row text-center">
             <div class="card">
@@ -12,17 +27,24 @@
 
                 <div class="collapse" id="collapseMenu2">
                     <div class="card card-body text-left">
-                        <div class="slider-track"></div>
+  
 
                         <label>Approx total tuiton cost</label>
+                        <p>                        
+                            <input type="text" id="amount" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+                        </p>
 
-                        <input type="range" class="form-custom-range" min="0" max="200000" id="rangeSlider" oninput="$('#budgetRange').html($(this).val())" data-toggle="tooltip" data-placement="top" title="hola" />
-                        <span id="budgetRange"> 100000</span>
+                        <div id="slider-range">
+
+                        </div>
                         
                     </div>
                 </div>
             </div>
         </div>
+
+
+
 
         <div class="row text-center">
             <div class="card">
@@ -65,6 +87,30 @@
                  });
              });
          });
+
+         $(function () {
+             $("#slider-range").slider({
+                 range: true,
+                 min: 0,
+                 max: 100000,
+                 values: [5000,50000 ],
+                 slide: function (event, ui) {
+                     $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+                     $("#valueField").val(ui.values[0] + " - " + ui.values[1]);
+                 }
+             });
+             $("#amount").val("$" + $("#slider-range").slider("values", 0) +
+                 " - $" + $("#slider-range").slider("values", 1));
+
+
+
+
+         });
+
+
+         
+
+
      </script>
 
 

@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace Colife
 {
-    public partial class Budget : System.Web.UI.Page
+    public partial class Sports : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -18,80 +18,104 @@ namespace Colife
             {
                 string mainConnection = ConfigurationManager.ConnectionStrings["MyConnection"].ConnectionString;
                 SqlConnection sqlConn = new SqlConnection(mainConnection);
+
+
                 SqlCommand command = new SqlCommand();
                 command.Connection = sqlConn;
                 command.CommandType = CommandType.Text;
-                string sqlQuery = "Select * from Scholarships";
+                string sqlQuery = "Select * from Admissions ORDER BY min";
                 sqlConn.Open();
                 SqlDataAdapter sda = new SqlDataAdapter(sqlQuery, sqlConn);
                 DataSet ds = new DataSet();
                 sda.Fill(ds);
 
-                if (ds.Tables[0].Rows.Count != 0)
-                {
-                    cbList.DataSource = ds;
-                    cbList.DataTextField = "ScholarshipName";
-                    cbList.DataValueField = "ScholarshipName";
-                    cbList.DataBind();
-                }
-                sqlConn.Close();
+                DataTable dt = ds.Tables[0];
 
+                gridAceptance.DataSource = dt;
+                gridAceptance.DataBind();
+
+                //if (ds.Tables[0].Rows.Count != 0)
+                //{
+                //    var queryAcceptance = dt.AsEnumerable().Select(a => a.Field<string>("AcceptanceRate").ToString()).Distinct();
+                //    cbList.DataSource = queryAcceptance;
+                //    cbList.DataBind();
+                //}
+
+                sqlConn.Close();
             }
+
+
+
         }
 
-
-        protected void btn_SearchClick(object sender, EventArgs e)
+        protected void btn_Search(object sender, EventArgs e)
         {
-
+         
+      
             string val = valueField.Value;
 
-            List<string> sqlQuery =new List<string>();
+
+            List<string> sqlQuery = new List<string>();
             string temp;
+
 
             List<string> ranges = val.Split('-').ToList();
 
 
-            if(ranges.Count!=0)
+            if (ranges.Count != 0)
             {
-                sqlQuery.Add("Select * from College where Tuiton Between " + ranges.First() +"and"+ ranges.Last());
+                sqlQuery.Add("Select * from College where (SATmin >= " + ranges.First() + ") and SATmax <=" + ranges.Last());
             }
 
-          
-            List<string> scholarshipList = new List<string>();
+            string val2 = valueField2.Value;
+
             
 
-            foreach (ListItem item in cbList.Items)
-            {
-                if (item.Selected)
-                {
-                    scholarshipList.Add(item.Value);
-                }
+            List<string> rangesGPA = val2.Split('-').ToList();
 
+
+            if (rangesGPA.Count != 0)
+            {
+                sqlQuery.Add("Select * from College where (GPAmin >= " + rangesGPA.First() + ")");
             }
 
-            if (scholarshipList.Count != 0)
-            {
 
-                temp = "Select * from College where ScholarshipName IN (";
-                string last = scholarshipList.Last();
-                foreach (string majorString in scholarshipList)
+            List<string> ls = new List<string>();
+
+            foreach(GridViewRow gridViewRow in gridAceptance.Rows)
+            {
+                var checkbox = gridViewRow.FindControl("Checkbox1") as CheckBox;
+                if(checkbox.Checked)
                 {
-                    if (majorString != last)
-                    {
-                        temp += "'" + majorString + "' , ";
-                    }
-                    else
-                    {
-                        temp += "'" + majorString + "')";
-                    }
+                    var lblAceptance = gridViewRow.FindControl("Label1") as Label;
+                    ls.Add(lblAceptance.Text);
+                    
                 }
-                sqlQuery.Add(temp);
             }
 
-            string finalQuery="";
+
+
+            temp = "Select * from College where AcceptanceRate IN (";
+
+            string last = ls.Last();
+            foreach (string majorString in ls)
+            {
+                if (majorString != last)
+                {
+                    temp += "'" + majorString + "' , ";
+                }
+                else
+                {
+                    temp += "'" + majorString + "')";
+                }
+            }
+            sqlQuery.Add(temp);
+
+
+            string finalQuery = "";
             string lastofQuery = sqlQuery.Last();
 
-            if(sqlQuery.Count>=2)
+            if (sqlQuery.Count >= 2)
             {
                 foreach (string item in sqlQuery)
                 {
@@ -101,7 +125,7 @@ namespace Colife
                     }
                     else
                     {
-                        finalQuery += item ;
+                        finalQuery += item;
                     }
                 }
             }
@@ -109,8 +133,6 @@ namespace Colife
             {
                 finalQuery = sqlQuery.First();
             }
-            
-
 
             string mainConnection = ConfigurationManager.ConnectionStrings["MyConnection"].ConnectionString;
             SqlConnection sqlConn = new SqlConnection(mainConnection);
@@ -123,6 +145,8 @@ namespace Colife
             sda.Fill(ds);
             collegeTable.DataSource = ds;
             collegeTable.DataBind();
+
+
         }
     }
 }

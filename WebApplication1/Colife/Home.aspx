@@ -16,12 +16,12 @@
             <div class="row text-center" style="margin-top:20px">
                 <div class="col-md-6">
                     <div class="row">
-                         <asp:ImageButton ID="btnSports" runat="server" AlternateText="Sports" ImageUrl="Images\sports.jpg" OnClick="btnSports_Click" />
+                         <asp:ImageButton ID="btnAdmissions" runat="server" AlternateText="Sports" ImageUrl="Images\sports.jpg" OnClick="btnAdmissions_Click" />
                     </div>
                        
                     
                     <div class="row">
-                        <asp:Label Text="Sports" runat="server"></asp:Label>
+                        <asp:Label Text="Admissions" runat="server"></asp:Label>
                     </div>
                     
                 </div>

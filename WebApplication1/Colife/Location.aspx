@@ -31,9 +31,6 @@
             <div class="align-middle">
                 <asp:RadioButton ID="rbCity" runat="server" Text="City" AutoPostBack="true" OnCheckedChanged="onChangeRadio" />
                 <select class=" selectpicker form-control" multiple data-live-search="true" id="citySelector" visible="false" runat="server">
-                    <option>Dallas</option>
-                    <option>New York</option>
-                    <option>Washington</option>
                 </select>
             </div>
 

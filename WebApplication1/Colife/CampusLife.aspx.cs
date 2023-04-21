@@ -37,48 +37,60 @@ namespace Colife
                     cbList.DataValueField = "clubID";
                     cbList.DataBind();
                 }
+                
 
+                string sqlQuery2 = "Select Distinct SportName from Sports";
+                
+                SqlDataAdapter sda2 = new SqlDataAdapter(sqlQuery2, sqlConn);
+                DataSet ds2 = new DataSet();
+                sda2.Fill(ds2);
+
+                if (ds2.Tables[0].Rows.Count != 0)
+                {
+                    cbSports.DataSource = ds2;
+                    cbSports.DataTextField = "SportName";
+                    cbSports.DataValueField = "SportName";
+                    cbSports.DataBind();
+                }
+
+                string sqlQuery3 = "Select * from NumberStudents";
+
+                SqlDataAdapter sda3 = new SqlDataAdapter(sqlQuery3, sqlConn);
+                DataSet ds3 = new DataSet();
+                sda3.Fill(ds3);
+
+                if (ds3.Tables[0].Rows.Count != 0)
+                {
+                    numberStudents.DataSource = ds3;
+                    numberStudents.DataTextField = "Size";
+                    numberStudents.DataValueField = "NumberOfStudentsMin";
+                    numberStudents.DataBind();
+                }
                 sqlConn.Close();
+
+
+
             }
-          
+           
 
         }
 
         protected void btn_SearchClick(object sender, EventArgs e)
         {
-            List<int> numberList = new List<int>();
+            List<string> numberList = new List<string>();
+            List<string> sqlQuery = new List<string>();
+            string temp;
 
             foreach (ListItem item in numberStudents.Items)
             {
                 if (item.Selected)
-                {
-                    numberList.Add(Int32.Parse(item.Value));
+                {                
+                    sqlQuery.Add("Select * from College where NumberOfStudents Between "+item.Value+" And (Select NumberOfStudentsMax from NumberStudents where NumberOfStudentsMin="+item.Value+")");
                 }
 
             }
 
-            string sqlQuery = "";
-                            
-            if (numberList.Count != 0)
-            {
-              
-                sqlQuery = "Select * from College where NumberOfStudents IN (";
-                int last = numberList.Last();
-                foreach (int majorString in numberList)
-                {
-                    if (majorString != last)
-                    {
-                        sqlQuery += "'" + majorString + "' , ";
-                    }
-                    else
-                    {
-                        sqlQuery += "'" + majorString + "')";
-                    }
-                }
-                
-
-            }
-
+            
             List<string> valueList = new List<string>();
 
             foreach (ListItem item in cbList.Items)
@@ -89,24 +101,59 @@ namespace Colife
                 }
             }
 
-         
-            if (valueList.Count!=0)
+
+            if (valueList.Count != 0)
             {
-                sqlQuery = "Select * from College where clubID IN (";
+                temp = "Select * from College where clubID IN (";
                 string last = valueList.Last();
                 foreach (string majorString in valueList)
                 {
                     if (majorString != last)
                     {
-                        sqlQuery += "'" + majorString + "' , ";
+                        temp += "'" + majorString + "' , ";
                     }
                     else
                     {
-                        sqlQuery += "'" + majorString + "')";
+                        temp += "'" + majorString + "')";
                     }
                 }
-                
-                
+
+                sqlQuery.Add(temp);
+
+            }
+
+
+            List<string> sportList = new List<string>();
+            string sportTemp;
+
+
+            foreach (ListItem item in cbSports.Items)
+            {
+                if (item.Selected)
+                {
+                    sportList.Add(item.Value);
+                }
+            }
+
+
+            if (sportList.Count != 0)
+            {
+                sportTemp = "Select * from College where SportName IN (";
+                string last = sportList.Last();
+                foreach (string majorString in sportList)
+                {
+                    if (majorString != last)
+                    {
+                        sportTemp += "'" + majorString + "' , ";
+                    }
+                    else
+                    {
+                        sportTemp += "'" + majorString + "')";
+                    }
+                }
+
+                sqlQuery.Add(sportTemp);
+
             }
 
             List<string> valueSurroundings = new List<string>();
@@ -119,10 +166,11 @@ namespace Colife
                 }
             }
 
+            string temp2;
 
             if (valueSurroundings.Count != 0)
             {
-                sqlQuery = "Select * from College where Surroundings IN (";
+                temp2 = "Select * from College where Surroundings IN (";
 
                 string last = valueSurroundings.Last();
 
@@ -130,18 +178,43 @@ namespace Colife
                 {
                     if (majorString != last)
                     {
-                        sqlQuery += "'" + majorString + "' , ";
+                        temp2 += "'" + majorString + "' , ";
                     }
                     else
                     {
-                        sqlQuery += "'" + majorString + "')";
+                        temp2 += "'" + majorString + "')";
                     }
                 }
 
-
+                sqlQuery.Add(temp2);
             }
 
 
+
+
+
+
+            string finalQuery = "";
+            string lastofQuery = sqlQuery.Last();
+
+            if (sqlQuery.Count >= 2)
+            {
+                foreach (string item in sqlQuery)
+                {
+                    if (item != lastofQuery)
+                    {
+                        finalQuery += item + " Intersect ";
+                    }
+                    else
+                    {
+                        finalQuery += item;
+                    }
+                }
+            }
+            else
+            {
+                finalQuery = sqlQuery.First();
+            }
 
 
             string mainConnection = ConfigurationManager.ConnectionStrings["MyConnection"].ConnectionString;
@@ -150,17 +223,11 @@ namespace Colife
             command.Connection = sqlConn;
             command.CommandType = CommandType.Text;
             sqlConn.Open();
-            SqlDataAdapter sda = new SqlDataAdapter(sqlQuery, sqlConn);
+            SqlDataAdapter sda = new SqlDataAdapter(finalQuery, sqlConn);
             DataSet ds = new DataSet();
             sda.Fill(ds);
             collegeTable.DataSource = ds;
             collegeTable.DataBind();
-
-
-
-
-
-
 
 
         }

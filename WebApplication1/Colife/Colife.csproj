@@ -179,7 +179,7 @@
     <Content Include="Site.Master" />
     <Content Include="Images\sports.jpg" />
     <Content Include="Images\type.jpg" />
-    <Content Include="Sports.aspx" />
+    <Content Include="Admissions.aspx" />
     <Content Include="Type.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -257,12 +257,12 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
-    <Compile Include="Sports.aspx.cs">
-      <DependentUpon>Sports.aspx</DependentUpon>
+    <Compile Include="Admissions.aspx.cs">
+      <DependentUpon>Admissions.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Sports.aspx.designer.cs">
-      <DependentUpon>Sports.aspx</DependentUpon>
+    <Compile Include="Admissions.aspx.designer.cs">
+      <DependentUpon>Admissions.aspx</DependentUpon>
     </Compile>
     <Compile Include="Type.aspx.cs">
       <DependentUpon>Type.aspx</DependentUpon>

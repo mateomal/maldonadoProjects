@@ -15,31 +15,31 @@ namespace Colife
     {
 
         /// <summary>
-        /// cbDivision control.
+        /// valueField control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList cbDivision;
+        protected global::System.Web.UI.WebControls.HiddenField valueField;
 
         /// <summary>
-        /// cbConferences control.
+        /// valueField2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList cbConferences;
+        protected global::System.Web.UI.WebControls.HiddenField valueField2;
 
         /// <summary>
-        /// cbList control.
+        /// gridAceptance control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList cbList;
+        protected global::System.Web.UI.WebControls.GridView gridAceptance;
 
         /// <summary>
         /// btnClear control.

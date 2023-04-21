@@ -14,9 +14,9 @@ namespace Colife
 
         }
 
-        protected void btnSports_Click(object sender, EventArgs e)
+        protected void btnAdmissions_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Sports.aspx");
+            Response.Redirect("Admissions.aspx");
         }
 
         protected void btnCities_Click(object sender, EventArgs e)
