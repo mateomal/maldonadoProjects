@@ -110,8 +110,6 @@ namespace Colife
                 finalQuery = sqlQuery.First();
             }
             
-
-
             string mainConnection = ConfigurationManager.ConnectionStrings["MyConnection"].ConnectionString;
             SqlConnection sqlConn = new SqlConnection(mainConnection);
             SqlCommand command = new SqlCommand();
@@ -121,8 +119,8 @@ namespace Colife
             SqlDataAdapter sda = new SqlDataAdapter(finalQuery, sqlConn);
             DataSet ds = new DataSet();
             sda.Fill(ds);
-            collegeTable.DataSource = ds;
-            collegeTable.DataBind();
+            collegeResults.DataSource = ds;
+            collegeResults.DataBind();
         }
     }
 }

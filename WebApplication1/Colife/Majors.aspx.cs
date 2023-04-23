@@ -80,9 +80,11 @@ namespace Colife
             DataSet ds = new DataSet();
             sda.Fill(ds);
 
+            collegeResults.DataSource = ds;
+            collegeResults.DataBind();
 
-            collegeTable.DataSource = ds;
-            collegeTable.DataBind();
+            //collegeTable.DataSource = ds;
+            //collegeTable.DataBind();
 
             
         }

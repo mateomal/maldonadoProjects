@@ -51,7 +51,6 @@ D:\Collife_Project\WebApplication1\Colife\bin\roslyn\vbc.rsp
 D:\Collife_Project\WebApplication1\Colife\bin\roslyn\VBCSCompiler.exe
 D:\Collife_Project\WebApplication1\Colife\bin\roslyn\VBCSCompiler.exe.config
 D:\Collife_Project\WebApplication1\Colife\bin\Antlr3.Runtime.dll
-D:\Collife_Project\WebApplication1\Colife\bin\AspNet.ScriptManager.bootstrap.dll
 D:\Collife_Project\WebApplication1\Colife\bin\AspNet.ScriptManager.jQuery.dll
 D:\Collife_Project\WebApplication1\Colife\bin\Microsoft.AspNet.FriendlyUrls.dll
 D:\Collife_Project\WebApplication1\Colife\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
@@ -77,4 +76,5 @@ D:\Collife_Project\WebApplication1\Colife\obj\Debug\Colife.csproj.CoreCompileInp
 D:\Collife_Project\WebApplication1\Colife\obj\Debug\Colife.csproj.CopyComplete
 D:\Collife_Project\WebApplication1\Colife\obj\Debug\Colife.dll
 D:\Collife_Project\WebApplication1\Colife\obj\Debug\Colife.pdb
+D:\Collife_Project\WebApplication1\Colife\bin\AspNet.ScriptManager.bootstrap.dll
 D:\Collife_Project\WebApplication1\Colife\obj\Debug\Colife.csproj.AssemblyReference.cache

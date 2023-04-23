@@ -14,39 +14,81 @@
 
 
     <div class="container">
-        <h2 class="text-center">Location</h2>
+        <div class="card mt-5 border-white">
+            <h2 class="text-center card-title">Location</h2>
 
-        <div class="row text-center">
-            <div class="align-middle">
+        <div class="row text-center card-body mx-auto">
+            <div class="align-middle" style="width:400px">
                 <asp:RadioButton ID="rbState" runat="server" Text="State" OnCheckedChanged="onChangeRadio" AutoPostBack="true" />
                 <select class="selectpicker form-control" multiple data-live-search="true" runat="server" id="stateSelector" visible="false" name="state">
-                </select>
-              
-
-
+                </select>            
             </div>
         </div>
 
-        <div class="row text-center">
-            <div class="align-middle">
+        <div class="row text-center card-body mx-auto">
+            <div class="align-middle" style="width:400px">
                 <asp:RadioButton ID="rbCity" runat="server" Text="City" AutoPostBack="true" OnCheckedChanged="onChangeRadio" />
-                <select class=" selectpicker form-control" multiple data-live-search="true" id="citySelector" visible="false" runat="server">
+                <select class=" selectpicker form-control" style="width:100px" multiple data-live-search="true" id="citySelector" visible="false" runat="server">
                 </select>
             </div>
-
         </div>
 
-        <div class="row text-center" style="margin-top:20px">
-            <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btn_Search" />
-            <asp:Button ID="btnClear" runat="server" Text="Clear" />
+        <div class="col-md-12 text-center">
+            <div class="row btn-group" role="group" style="margin-top: 20px">
+                <button runat="server" id="btnClear" class="btn">Clear</button>
+                <button runat="server" id="btnSearch" onserverclick="btn_Search" class="btn btn-primary ml-2">Search</button>
+            </div>
         </div>
+        </div>
+        
     </div>
+        <asp:Repeater runat="server" ID="collegeResults" ClientIDMode="Static">
+            <ItemTemplate>
 
-    <div class="row">
-        <asp:GridView ID="collegeTable" runat="server"></asp:GridView>
+                <div class="container mb-5">
+                    <a href="<%#Eval("URL") %>" class="card-link stretched-link row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="row card-body">
+                                    <div class="col-6">
+                                        <h2 class="card-title mt-5"><%#Eval("CollegeName") %></h2>
+                                        <h5 class="card-subtitle mb-5"><%#Eval("CityName") %>,<%#Eval("StateCode")%></h5>
+                                        <hr />
+                                        <div class="card-text col-12">
+                                            <div class="row">
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item"><%#Eval("Education")%></li>
+                                                    <li class="list-inline-item"><%#Eval("Type") %></li>
+                                                    <li class="list-inline-item"><%#Eval("Surroundings")%></li>
+                                                </ul>
+                                            </div>
+                                            <div class="row">
+                                                <p class="card-text">SAT:</p>
+                                                <label id="satMin"><%#Eval("SATMin") %></label>-<label id="satMax"><%#Eval("SATMax") %></label>
+                                            </div>
+                                            <div class="row">
+                                                <p class="card-text">Number of Students:</p>
+                                                <label id="numbStudents"><%#Eval("NumberOfStudents") %></label>
+                                            </div>
+                                            <div class="row">
+                                                <p class="card-text">Acceptance Rate:</p>
+                                                <label id="acceptance"><%#Eval("AcceptanceRate") %></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <img class="col-6" src="<%#Eval("Photo") %>" style="width: 280px; height: 299px" alt="sans" />
+                                    <%--<img class="pull-right rounded-circle" src="<%#Eval("Logo")%>" alt="sans"/>--%>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </ItemTemplate>
+         </asp:Repeater>
+    
 
 
-    </div>
+    
 
 
 
@@ -54,9 +96,7 @@
 
 
 
-    <script type="text/html">
-        $('select').selectpicker();
-    </script>
+ 
 
 
 </asp:Content>

@@ -9,7 +9,6 @@
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
-
     <style>
 
         #slider-range, #slider-range2
@@ -34,16 +33,16 @@
     <asp:HiddenField ID="valueField2" ClientIDMode="Static" runat="server" />
 
 
-
- <h2 class="text-center">Admissions</h2>
+<div class="container">
+     <div class="card mt-5 border-white">
+         <h2 class="text-center card-title" style="margin:40px">Admissions</h2>
 
     <div class="row text-center">
-        <div class="card">
-            <button class="btn" type="button" data-toggle="collapse" data-target="#collapseMenu" aria-controls="#collapseMenu" aria-expanded="false">SAT</button>
+        <div class="card mx-auto col-lg-6">
+            <button class="btn btn-block" type="button" data-toggle="collapse" data-target="#collapseMenu" aria-controls="#collapseMenu" aria-expanded="false">SAT</button>
 
-            <div class="collapse" id="collapseMenu">
-                <div class="card card-body">
-                    
+            <div class="collapse" id="collapseMenu" style="margin:10px">
+                <div class="card card-body">                 
                         <label>SAT Range</label>
                         <p>                        
                             <input type="text" id="amount" readonly style="border: 0; color: #f6931f; font-weight: bold;">
@@ -58,11 +57,11 @@
     </div>
 
     <div class="row text-center">
-        <div class="card">
+        <div class="card mx-auto col-lg-6">
             <button class="btn" type="button" data-toggle="collapse" data-target="#collapseMenu2" aria-controls="#collapseMenu2" aria-expanded="false">GPA</button>
 
-            <div class="collapse" id="collapseMenu2">
-                <div class="card card-body text-left">
+            <div class="collapse" id="collapseMenu2" style="margin:10px">
+                <div class="card card-body">
                      <label>GPA Range</label>
                         <p>                        
                             <input type="text" id="amount2" readonly style="border: 0; color: #f6931f; font-weight: bold;">
@@ -78,18 +77,13 @@
 
 
     <div class="row text-center">
-        <div class="card">
+        <div class="card mx-auto col-lg-6">
             <button class="btn" type="button" data-toggle="collapse" data-target="#collapseMenu3" aria-controls="#collapseMenu3" aria-expanded="false">Acceptance Rate</button>
 
             <div class="collapse" id="collapseMenu3">
-                <div class="card card-body text-left">
+                <div class="card card-body">
   
-                    <div style="height:100px;" class="grid">
-<%--                        <asp:CheckBoxList ID="cbList" runat="server" TextAlign="Left" CssClass="list-group-item text-left" ClientIDMode="Static"> 
-                            
-                        </asp:CheckBoxList>--%>
-
-
+                    <div style="height:80px;" class="grid">
 
                         <asp:GridView runat="server" ID="gridAceptance" AutoGenerateColumns="false" GridLines="None">
                             <Columns>
@@ -126,10 +120,18 @@
     </div>
     
     
-    <div class="row text-center">
-        <asp:Button runat="server" ID="btnClear" Text="Clear" />
-        <asp:Button runat="server" ID="btnSearch" Text="Search" OnClick="btn_Search" />
+     <div class="col-md-12 text-center">
+        <div class="row btn-group" role="group" style="margin-top: 20px">
+            <button runat="server" id="btnClear" class="btn">Clear</button>
+            <button runat="server" id="btnSearch" onserverclick="btn_Search" class="btn btn-primary ml-2">Search</button>
+        </div>
     </div>
+     </div>
+    
+</div>
+ 
+
+
     <div class="row">
         <asp:GridView ID="collegeTable" runat="server"></asp:GridView>
 

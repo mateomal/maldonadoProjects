@@ -62,10 +62,11 @@ namespace Colife
             List<string> ranges = val.Split('-').ToList();
 
 
-            if (ranges.Count != 0)
+            if (!ranges.Contains(""))
             {
                 sqlQuery.Add("Select * from College where (SATmin >= " + ranges.First() + ") and SATmax <=" + ranges.Last());
             }
+
 
             string val2 = valueField2.Value;
 
@@ -74,9 +75,9 @@ namespace Colife
             List<string> rangesGPA = val2.Split('-').ToList();
 
 
-            if (rangesGPA.Count != 0)
+            if (!rangesGPA.Contains(""))
             {
-                sqlQuery.Add("Select * from College where (GPAmin >= " + rangesGPA.First() + ")");
+                sqlQuery.Add("Select * from College where (GPAMax >= " + rangesGPA.First() + ")");
             }
 
 
@@ -97,19 +98,24 @@ namespace Colife
 
             temp = "Select * from College where AcceptanceRate IN (";
 
-            string last = ls.Last();
-            foreach (string majorString in ls)
+
+            if(ls.Count!=0)
             {
-                if (majorString != last)
+                string last = ls.Last();
+                foreach (string majorString in ls)
                 {
-                    temp += "'" + majorString + "' , ";
+                    if (majorString != last)
+                    {
+                        temp += "'" + majorString + "' , ";
+                    }
+                    else
+                    {
+                        temp += "'" + majorString + "')";
+                    }
                 }
-                else
-                {
-                    temp += "'" + majorString + "')";
-                }
+                sqlQuery.Add(temp);
             }
-            sqlQuery.Add(temp);
+            
 
 
             string finalQuery = "";

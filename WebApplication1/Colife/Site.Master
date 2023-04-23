@@ -14,17 +14,132 @@
 
     <webopt:bundlereference runat="server" path="~/Content/css"/>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+ 
 </head>
 <body>
     <form runat="server">
+         <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="signUpModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title" id="signUpModalLabel" style="">Sign Up</h1>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <label>First Name</label>
+                                        <asp:TextBox runat="server" CssClass="form-control" placeholder="First Name" ID="txtFirstName"></asp:TextBox>
+                                        <label>Last Name</label>
+                                        <asp:TextBox runat="server" CssClass="form-control" placeholder="Last Name" ID="txtLastName"></asp:TextBox>
+                                        <label>Address</label>
+                                        <asp:TextBox runat="server" CssClass="form-control" placeholder="Address" ID="txtAddress"></asp:TextBox>
+                                        <label>City</label>
+                                        <asp:TextBox runat="server" CssClass="form-control" placeholder="City" ID="txtCity"></asp:TextBox>
+                                        <label>State</label>
+                                        <asp:DropDownList ID="stateList" CssClass="form-control" runat="server">
+                                            <asp:ListItem Value="AL">Alabama</asp:ListItem>
+                                            <asp:ListItem Value="AK">Alaska</asp:ListItem>
+                                            <asp:ListItem Value="AZ">Arizona</asp:ListItem>
+                                            <asp:ListItem Value="AR">Arkansas</asp:ListItem>
+                                            <asp:ListItem Value="CA">California</asp:ListItem>
+                                            <asp:ListItem Value="CO">Colorado</asp:ListItem>
+                                            <asp:ListItem Value="CT">Connecticut</asp:ListItem>
+                                            <asp:ListItem Value="DC">District of Columbia</asp:ListItem>
+                                            <asp:ListItem Value="DE">Delaware</asp:ListItem>
+                                            <asp:ListItem Value="FL">Florida</asp:ListItem>
+                                            <asp:ListItem Value="GA">Georgia</asp:ListItem>
+                                            <asp:ListItem Value="HI">Hawaii</asp:ListItem>
+                                            <asp:ListItem Value="ID">Idaho</asp:ListItem>
+                                            <asp:ListItem Value="IL">Illinois</asp:ListItem>
+                                            <asp:ListItem Value="IN">Indiana</asp:ListItem>
+                                            <asp:ListItem Value="IA">Iowa</asp:ListItem>
+                                            <asp:ListItem Value="KS">Kansas</asp:ListItem>
+                                            <asp:ListItem Value="KY">Kentucky</asp:ListItem>
+                                            <asp:ListItem Value="LA">Louisiana</asp:ListItem>
+                                            <asp:ListItem Value="ME">Maine</asp:ListItem>
+                                            <asp:ListItem Value="MD">Maryland</asp:ListItem>
+                                            <asp:ListItem Value="MA">Massachusetts</asp:ListItem>
+                                            <asp:ListItem Value="MI">Michigan</asp:ListItem>
+                                            <asp:ListItem Value="MN">Minnesota</asp:ListItem>
+                                            <asp:ListItem Value="MS">Mississippi</asp:ListItem>
+                                            <asp:ListItem Value="MO">Missouri</asp:ListItem>
+                                            <asp:ListItem Value="MT">Montana</asp:ListItem>
+                                            <asp:ListItem Value="NE">Nebraska</asp:ListItem>
+                                            <asp:ListItem Value="NV">Nevada</asp:ListItem>
+                                            <asp:ListItem Value="NH">New Hampshire</asp:ListItem>
+                                            <asp:ListItem Value="NJ">New Jersey</asp:ListItem>
+                                            <asp:ListItem Value="NM">New Mexico</asp:ListItem>
+                                            <asp:ListItem Value="NY">New York</asp:ListItem>
+                                            <asp:ListItem Value="NC">North Carolina</asp:ListItem>
+                                            <asp:ListItem Value="ND">North Dakota</asp:ListItem>
+                                            <asp:ListItem Value="OH">Ohio</asp:ListItem>
+                                            <asp:ListItem Value="OK">Oklahoma</asp:ListItem>
+                                            <asp:ListItem Value="OR">Oregon</asp:ListItem>
+                                            <asp:ListItem Value="PA">Pennsylvania</asp:ListItem>
+                                            <asp:ListItem Value="RI">Rhode Island</asp:ListItem>
+                                            <asp:ListItem Value="SC">South Carolina</asp:ListItem>
+                                            <asp:ListItem Value="SD">South Dakota</asp:ListItem>
+                                            <asp:ListItem Value="TN">Tennessee</asp:ListItem>
+                                            <asp:ListItem Value="TX">Texas</asp:ListItem>
+                                            <asp:ListItem Value="UT">Utah</asp:ListItem>
+                                            <asp:ListItem Value="VT">Vermont</asp:ListItem>
+                                            <asp:ListItem Value="VA">Virginia</asp:ListItem>
+                                            <asp:ListItem Value="WA">Washington</asp:ListItem>
+                                            <asp:ListItem Value="WV">West Virginia</asp:ListItem>
+                                            <asp:ListItem Value="WI">Wisconsin</asp:ListItem>
+                                            <asp:ListItem Value="WY">Wyoming</asp:ListItem>
+                                        </asp:DropDownList>
+                                        <label>Email</label>
+                                        <asp:TextBox runat="server" CssClass="form-control" placeholder="Email" TextMode="Email" ID="txtEmail"></asp:TextBox>
+                                        <label>Password</label>
+                                        <asp:TextBox runat="server" CssClass="form-control" placeholder="Password" ID="txtPassword"></asp:TextBox>
+                                        <label>Confirm Password</label>
+                                        <asp:TextBox runat="server" CssClass="form-control" TextMode="Password" placeholder="Confirm-Password"></asp:TextBox>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>                                       
+                                        <asp:Button CssClass="btn btn-primary" runat="server" Text="Sign Up" OnClick="btnSignUp_Click" />
+                                    </div>
+                                </div>
+                            </div>
+         </div>
+
+
+        <div class="modal fade" id="LogInModal" tabindex="-1" role="dialog" aria-labelledby="logInModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title" id="logInModalLabel" style="">Log In</h1>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <label>Email:</label>
+                                        <asp:TextBox runat="server" CssClass="form-control" placeholder="Email" TextMode="Email" ID="txtEmailLog"></asp:TextBox>
+                                        <label>Password</label>
+                                        <asp:TextBox runat="server" CssClass="form-control" placeholder="Password" TextMode="Password" ID="txtPasswordLog"></asp:TextBox>
+                                        <asp:Label ID="lblError" runat="server" Text="The user credentials are incorrect, try again"></asp:Label>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <asp:Button CssClass="btn btn-primary" runat="server" Text="Log In" OnClick="btnLogIn_Click" />
+                                    </div>
+                                </div>
+                            </div>
+         </div>
         <asp:ScriptManager runat="server">
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
                 <%--Framework Scripts--%>
                 <asp:ScriptReference Name="MsAjaxBundle" />
                 <asp:ScriptReference Name="jquery" />
-                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="bootstrap"/>
                 <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
                 <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
                 <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
@@ -38,37 +153,38 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:#012d66">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>                   
-                    </button>                   
-                        <a class="navbar-brand; margin-top:2px" runat="server" href="~/Home.aspx"><img src="Images/Liceria.jpg" height="50"/>Collife</a>                            
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-center">
-                        <li><a runat="server" href="~/">Find your College</a></li>
-                        <li><a runat="server" href="~/About">Get Ready for College</a></li>
-                        <li><a runat="server" href="~/Contact">Rankings</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right navbar-btn">
-                        <asp:Button ID="signUp" Text="Sign Up" runat="server"/>
-                        <asp:Button ID="logIn" Text="Log in" runat="server" />
-                    </ul>
-                   
-                </div>
+
+        <nav class="navbar navbar-expand-lg fixed-top" style="background-color:#012d66">
+            <img src="Images/Liceria.jpg" height="50" class="navbar-brand"/>
+          
+               <button type="button" data-toggle="collapse" class="navbar-toggler" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>                   
+                 </button>
+           
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link" href="Home.aspx" style="color:white">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about" style="color:white">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact" style="color:white">Contact</a></li>                   
+                </ul>
+                <ul class="navbar-nav navbar-right">
+                    <li><button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#signUpModal">Sign Up</button> </li>
+                    <li> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#LogInModal" style="margin-left:10px;">Log In</button></li>
+                </ul>
             </div>
-        </div>
+        </nav>
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
+
             </asp:ContentPlaceHolder>
-            <hr />
-            <footer>
+            
+            <footer class="fixed-bottom">
                 <p>&copy; <%: DateTime.Now.Year %> - Collife</p>
             </footer>
         </div>
 
     </form>
 </body>
+
+   
 </html>

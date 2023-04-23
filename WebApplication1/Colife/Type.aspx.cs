@@ -27,7 +27,11 @@ namespace Colife
 
             foreach(ListItem item in educationList.Items)
             {
-                type.Add(item.Value);
+                if(item.Selected)
+                {
+                    type.Add(item.Value);
+                }
+                
             }
 
             temp = "Select * from College where Education IN (";
@@ -55,7 +59,11 @@ namespace Colife
 
             foreach (ListItem item in typeList.Items)
             {
-                time.Add(item.Value);
+                if(item.Selected)
+                {
+                    time.Add(item.Value);
+                }
+                
             }
 
             temp2 = "Select * from College where Type IN (";
@@ -110,9 +118,9 @@ namespace Colife
             SqlDataAdapter sda = new SqlDataAdapter(finalQuery, sqlConn);
             DataSet ds = new DataSet();
             sda.Fill(ds);
-            collegeTable.DataSource = ds;
-            collegeTable.DataBind();
-
+            collegeResults.DataSource = ds;
+            collegeResults.DataBind();
+            sqlConn.Close();
 
 
         }

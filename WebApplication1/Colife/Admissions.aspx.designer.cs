@@ -48,7 +48,7 @@ namespace Colife
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnClear;
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnClear;
 
         /// <summary>
         /// btnSearch control.
@@ -57,7 +57,7 @@ namespace Colife
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSearch;
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnSearch;
 
         /// <summary>
         /// collegeTable control.
