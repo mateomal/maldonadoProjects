@@ -115,44 +115,58 @@ namespace Colife
                 }
                 sqlQuery.Add(temp);
             }
-            
 
-
-            string finalQuery = "";
-            string lastofQuery = sqlQuery.Last();
-
-            if (sqlQuery.Count >= 2)
+            if (sqlQuery.Count == 0)
             {
-                foreach (string item in sqlQuery)
-                {
-                    if (item != lastofQuery)
-                    {
-                        finalQuery += item + " Intersect ";
-                    }
-                    else
-                    {
-                        finalQuery += item;
-                    }
-                }
+                lblError.Text = "Please select one of the fields above";
             }
             else
             {
-                finalQuery = sqlQuery.First();
+
+                string finalQuery = "";
+                string lastofQuery = sqlQuery.Last();
+
+                if (sqlQuery.Count >= 2)
+                {
+                    foreach (string item in sqlQuery)
+                    {
+                        if (item != lastofQuery)
+                        {
+                            finalQuery += item + " Intersect ";
+                        }
+                        else
+                        {
+                            finalQuery += item;
+                        }
+                    }
+                }
+                else
+                {
+                    finalQuery = sqlQuery.First();
+                }
+
+                string mainConnection = ConfigurationManager.ConnectionStrings["MyConnection"].ConnectionString;
+                SqlConnection sqlConn = new SqlConnection(mainConnection);
+                SqlCommand command = new SqlCommand();
+                command.Connection = sqlConn;
+                command.CommandType = CommandType.Text;
+                sqlConn.Open();
+                SqlDataAdapter sda = new SqlDataAdapter(finalQuery, sqlConn);
+                DataSet ds = new DataSet();
+                sda.Fill(ds);
+                string[] distinct = { "CollegeName", "CityName", "StateCode", "NumberOfStudents", "Type", "Surroundings", "SATMin", "SATMax", "AcceptanceRate", "Tuiton", "Photo","URL" };
+                DataTable dtDistinct = DistinctTables(ds.Tables[0], distinct);
+                collegeResults.DataSource = dtDistinct;
+                collegeResults.DataBind();
             }
 
-            string mainConnection = ConfigurationManager.ConnectionStrings["MyConnection"].ConnectionString;
-            SqlConnection sqlConn = new SqlConnection(mainConnection);
-            SqlCommand command = new SqlCommand();
-            command.Connection = sqlConn;
-            command.CommandType = CommandType.Text;
-            sqlConn.Open();
-            SqlDataAdapter sda = new SqlDataAdapter(finalQuery, sqlConn);
-            DataSet ds = new DataSet();
-            sda.Fill(ds);
-            collegeTable.DataSource = ds;
-            collegeTable.DataBind();
 
-
+        }
+        protected static DataTable DistinctTables(DataTable dt, string[] columns)
+        {
+            DataTable dtUnique = new DataTable();
+            dtUnique = dt.DefaultView.ToTable(true, columns);
+            return dtUnique;
         }
     }
 }

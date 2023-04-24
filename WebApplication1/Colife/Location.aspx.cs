@@ -157,11 +157,19 @@ namespace Colife
             DataSet ds = new DataSet();
             sda.Fill(ds);
 
-            collegeResults.DataSource = ds;
+            string[] distinct = { "CollegeName", "CityName", "StateCode", "NumberOfStudents", "Type", "Surroundings", "SATMin", "SATMax", "AcceptanceRate", "Tuiton", "Photo" , "URL" };
+            DataTable dtDistinct = DistinctTables(ds.Tables[0], distinct);
+            collegeResults.DataSource = dtDistinct;
             collegeResults.DataBind();
 
             sqlConn.Close();
           
+        }
+        protected static DataTable DistinctTables(DataTable dt, string[] columns)
+        {
+            DataTable dtUnique = new DataTable();
+            dtUnique = dt.DefaultView.ToTable(true, columns);
+            return dtUnique;
         }
     }
 }

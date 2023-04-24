@@ -45,6 +45,8 @@ namespace Colife
         protected void btn_Search(object sender, EventArgs e)
         {
             List<string> valueList = new List<string>();
+            List<string> sqlQuery = new List<string>();
+            string temp="";
 
             foreach (ListItem item in cbList.Items)
             {
@@ -60,33 +62,49 @@ namespace Colife
             command.Connection = sqlConn;
             command.CommandType = CommandType.Text;
 
-          
-            string sqlQuery = "Select * from College where majorID IN (";
-
-            string last = valueList.Last();
-            foreach (string majorString in valueList)
+         
+            if(valueList.Count!=0)
             {
-                if(majorString!=last)
+                temp = "Select * from College where majorID IN (";
+
+                string last = valueList.Last();
+                foreach (string majorString in valueList)
                 {
-                    sqlQuery += "'"+majorString + "' , ";
+                    if (majorString != last)
+                    {
+                        temp += "'" + majorString + "' , ";
+                    }
+                    else
+                    {
+                        temp += "'" + majorString + "')";
+                    }
                 }
-                else
-                {
-                    sqlQuery += "'"+majorString + "')";
-                }               
+                sqlConn.Open();
+                SqlDataAdapter sda = new SqlDataAdapter(temp, sqlConn);
+                DataSet ds = new DataSet();
+                sda.Fill(ds);
+
+                string[] distinct = { "CollegeName", "CityName", "StateCode", "NumberOfStudents", "Type", "Surroundings", "SATMin", "SATMax", "AcceptanceRate", "Tuiton", "Photo", "URL" };
+                DataTable dtDistinct = DistinctTables(ds.Tables[0], distinct);
+                collegeResults.DataSource = dtDistinct;
+                collegeResults.DataBind();
+
             }
-            sqlConn.Open();
-            SqlDataAdapter sda = new SqlDataAdapter(sqlQuery, sqlConn);
-            DataSet ds = new DataSet();
-            sda.Fill(ds);
+            else
+            {
+                lblError.Text = "Please Select one of the fields above";
+            }
 
-            collegeResults.DataSource = ds;
-            collegeResults.DataBind();
 
-            //collegeTable.DataSource = ds;
-            //collegeTable.DataBind();
 
-            
+
+
+        }
+        protected static DataTable DistinctTables(DataTable dt, string[] columns)
+        {
+            DataTable dtUnique = new DataTable();
+            dtUnique = dt.DefaultView.ToTable(true, columns);
+            return dtUnique;
         }
     }
 }

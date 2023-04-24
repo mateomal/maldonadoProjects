@@ -77,6 +77,11 @@
             <button runat="server" id="btnSearch" onserverclick="btn_SearchClick" class="btn btn-primary ml-2">Search</button>
         </div>
     </div>
+    <div class="col-12 text-center">
+            <asp:Label CssClass="alert-danger" id="lblError" runat="server"></asp:Label>
+        </div>
+
+
     <asp:Repeater runat="server" ID="collegeResults" ClientIDMode="Static">
             <ItemTemplate>
 
@@ -92,7 +97,6 @@
                                         <div class="card-text col-12">
                                             <div class="row">
                                                 <ul class="list-inline">
-                                                    <li class="list-inline-item"><%#Eval("Education")%></li>
                                                     <li class="list-inline-item"><%#Eval("Type") %></li>
                                                     <li class="list-inline-item"><%#Eval("Surroundings")%></li>
                                                 </ul>

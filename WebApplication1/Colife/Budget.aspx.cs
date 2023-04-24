@@ -51,7 +51,7 @@ namespace Colife
             List<string> ranges = val.Split('-').ToList();
 
 
-            if(ranges.Count!=0)
+            if(!ranges.Contains(""))
             {
                 sqlQuery.Add("Select * from College where Tuiton Between " + ranges.First() +"and"+ ranges.Last());
             }
@@ -68,7 +68,6 @@ namespace Colife
                 }
 
             }
-
             if (scholarshipList.Count != 0)
             {
 
@@ -88,39 +87,57 @@ namespace Colife
                 sqlQuery.Add(temp);
             }
 
-            string finalQuery="";
-            string lastofQuery = sqlQuery.Last();
-
-            if(sqlQuery.Count>=2)
+            if(sqlQuery.Count==0)
             {
-                foreach (string item in sqlQuery)
-                {
-                    if (item != lastofQuery)
-                    {
-                        finalQuery += item + " Intersect ";
-                    }
-                    else
-                    {
-                        finalQuery += item ;
-                    }
-                }
+                lblError.Text = "Please Select one of the fields above";
             }
             else
             {
-                finalQuery = sqlQuery.First();
+                lblError.Text = "";
+                string finalQuery = "";
+                string lastofQuery = sqlQuery.Last();
+
+                if (sqlQuery.Count >= 2)
+                {
+                    foreach (string item in sqlQuery)
+                    {
+                        if (item != lastofQuery)
+                        {
+                            finalQuery += item + " Intersect ";
+                        }
+                        else
+                        {
+                            finalQuery += item;
+                        }
+                    }
+                }
+                else
+                {
+                    finalQuery = sqlQuery.First();
+                }
+
+                string mainConnection = ConfigurationManager.ConnectionStrings["MyConnection"].ConnectionString;
+                SqlConnection sqlConn = new SqlConnection(mainConnection);
+                SqlCommand command = new SqlCommand();
+                command.Connection = sqlConn;
+                command.CommandType = CommandType.Text;
+                sqlConn.Open();
+                SqlDataAdapter sda = new SqlDataAdapter(finalQuery, sqlConn);
+                DataSet ds = new DataSet();
+                sda.Fill(ds);
+                string[] distinct = { "CollegeName", "CityName", "StateCode", "NumberOfStudents", "Type", "Surroundings", "SATMin", "SATMax", "AcceptanceRate", "Tuiton", "Photo","URL" };
+                DataTable dtDistinct = DistinctTables(ds.Tables[0], distinct);
+                collegeResults.DataSource = dtDistinct;
+                collegeResults.DataBind();
             }
-            
-            string mainConnection = ConfigurationManager.ConnectionStrings["MyConnection"].ConnectionString;
-            SqlConnection sqlConn = new SqlConnection(mainConnection);
-            SqlCommand command = new SqlCommand();
-            command.Connection = sqlConn;
-            command.CommandType = CommandType.Text;
-            sqlConn.Open();
-            SqlDataAdapter sda = new SqlDataAdapter(finalQuery, sqlConn);
-            DataSet ds = new DataSet();
-            sda.Fill(ds);
-            collegeResults.DataSource = ds;
-            collegeResults.DataBind();
+
+        }
+
+        protected static DataTable DistinctTables(DataTable dt, string[] columns)
+        {
+            DataTable dtUnique = new DataTable();
+            dtUnique = dt.DefaultView.ToTable(true, columns);
+            return dtUnique;
         }
     }
 }

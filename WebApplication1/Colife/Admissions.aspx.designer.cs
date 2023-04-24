@@ -60,12 +60,21 @@ namespace Colife
         protected global::System.Web.UI.HtmlControls.HtmlButton btnSearch;
 
         /// <summary>
-        /// collegeTable control.
+        /// lblError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView collegeTable;
+        protected global::System.Web.UI.WebControls.Label lblError;
+
+        /// <summary>
+        /// collegeResults control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater collegeResults;
     }
 }
